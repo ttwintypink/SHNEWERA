@@ -1,0 +1,27 @@
+[Unit]
+Description=SH Discord Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# ВАЖНО: поменяй пути под свою установку
+WorkingDirectory=/opt/shbot/SH_discord_bot_split
+EnvironmentFile=/opt/shbot/SH_discord_bot_split/.env
+ExecStart=/opt/shbot/SH_discord_bot_split/.venv/bin/python /opt/shbot/SH_discord_bot_split/main.py
+Restart=on-failure
+RestartSec=5
+
+# ВАЖНО: лучше запускать под отдельным пользователем
+User=shbot
+Group=shbot
+
+# Базовая защита
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/shbot/SH_discord_bot_split
+
+[Install]
+WantedBy=multi-user.target
