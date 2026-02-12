@@ -1,6 +1,0 @@
-# requirements.txt (root)
-# Многие панели/хостинги устанавливают зависимости только из requirements.txt в корне проекта.
-# Дублируем зависимости из SH_discord_bot_split/requirements.txt.
-
-discord.py>=2.3.0
-python-dotenv>=1.0.0
